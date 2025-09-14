@@ -1,27 +1,22 @@
-name: Deploy Website
+name: Deploy HTML Page
 
+# Manual trigger only
 on:
-  workflow_dispatch: #this will be used to trigger manually
+  workflow_dispatch:
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       # Step 2: Deploy to GitHub Pages
-      - name: Deploy
+      - name: Deploy HTML page
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: . # Change to your build folder
-          branch: gh-pages
-
-
-
-
-
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub built-in token
+          publish_dir: .                             # Root folder containing index.html
+          branch: gh-pages                           # Target branch
