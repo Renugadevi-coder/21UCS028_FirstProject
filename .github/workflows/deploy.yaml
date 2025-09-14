@@ -13,27 +13,14 @@ jobs:
       # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      # Step 2: Setup Node.js (if your project needs it)
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # Step 3: Install dependencies (if package.json exists)
-      - name: Install dependencies
-        run: npm install
-
-      # Step 4: Build the project
-      - name: Build project
-        run: npm run build
-
-      # Step 5: Deploy to GitHub Pages
+        
+      # Step 2: Deploy to GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: . # Change to your build folder
+
 
 
 
