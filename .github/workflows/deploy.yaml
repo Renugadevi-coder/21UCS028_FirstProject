@@ -1,9 +1,7 @@
 name: Deploy Website
 
 on:
-  push:
-    branches:
-      - main   # Runs when code is pushed to main branch
+  workflow_dispatch: #this will be used to trigger manually
 
 jobs:
   build-deploy:
@@ -20,6 +18,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: . # Change to your build folder
+
 
 
 
