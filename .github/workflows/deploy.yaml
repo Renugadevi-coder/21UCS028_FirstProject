@@ -18,6 +18,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: . # Change to your build folder
+          branch: gh-pages
+
 
 
 
